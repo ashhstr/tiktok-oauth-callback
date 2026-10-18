@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ash Creative Clipper - TikTok Authorization</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 4rem auto; padding: 0 1rem; color: #222; }
+    .ok { color: #16a34a; font-weight: 600; }
+    code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <h1>Ash Creative Clipper</h1>
+  <p class="ok">TikTok authorization complete.</p>
+  <p>You may close this window and return to the app.</p>
+  <p id="code" style="display:none"></p>
+  <script>
+    // Surface the authorization code only for debugging; the app reads it from the URL.
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    if (code) {
+      const el = document.getElementById('code');
+      el.style.display = 'block';
+      el.innerHTML = 'Code: <code>' + code + '</code>';
+    }
+  </script>
+</body>
+</html>
